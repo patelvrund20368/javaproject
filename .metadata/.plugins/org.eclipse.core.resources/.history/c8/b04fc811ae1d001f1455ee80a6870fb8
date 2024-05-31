@@ -1,0 +1,5 @@
+package com.codecaluse.eventmanagementsystem.model;
+
+public class Event {
+
+}

@@ -1,0 +1,66 @@
+package com.codecaluse.eventmanagementsystem.view;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class AttendeeView {
+    private JFrame frame;
+    private JTextField nameField;
+    private JTextField emailField;
+    private JTextField phoneField;
+
+    public Attendee() {
+        createAndShowGUI();
+    }
+
+    private void createAndShowGUI() {
+        frame = new JFrame("Attendee");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 200);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3, 2));
+
+        JLabel nameLabel = new JLabel("Name:");
+        nameField = new JTextField(20);
+        panel.add(nameLabel);
+        panel.add(nameField);
+
+        JLabel emailLabel = new JLabel("Email:");
+        emailField = new JTextField(20);
+        panel.add(emailLabel);
+        panel.add(emailField);
+
+        JLabel phoneLabel = new JLabel("Phone:");
+        phoneField = new JTextField(20);
+        panel.add(phoneLabel);
+        panel.add(phoneField);
+
+        JButton saveButton = new JButton("Save");
+        saveButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String name = nameField.getText();
+                String email = emailField.getText();
+                String phone = phoneField.getText();
+
+                // Save the attendee's information to a database or file
+                // ...
+
+                JOptionPane.showMessageDialog(frame, "Attendee saved!");
+            }
+        });
+        panel.add(saveButton);
+
+        frame.getContentPane().add(panel, BorderLayout.CENTER);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                new Attendee();
+            }
+        });
+    }
+}

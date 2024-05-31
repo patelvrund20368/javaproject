@@ -1,0 +1,5 @@
+package com.codecaluse.eventmanagementsystem.controller.util;
+
+public class Database {
+
+}
